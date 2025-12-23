@@ -68,7 +68,7 @@ nav ul li a {
     color: transparent;
 }
 
-button {
+.btn {
     text-decoration: none;
     color: #ed0e0e;
     font-size: 24px;
@@ -79,7 +79,7 @@ button {
     display: inline-block;
 }
 
-button:hover {
+.btn:hover {
     -webkit-text-stroke: 2px #ed0e0e;
     color: transparent;
 }
