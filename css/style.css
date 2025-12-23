@@ -113,3 +113,74 @@ nav ul li a {
         height: 100%;
     }
 }
+
+/* Gijt box */
+
+.gift-box-container {
+    width: 200px;
+    height: 200px;
+    perspective: 1000px;
+    margin: 150px auto;
+}
+
+.gift-box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(45deg);
+    transition: transform 0.1s ease;
+}
+
+.face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Positionnement des faces */
+.front  { background: #f80101; transform: rotateY(0deg) translateZ(100px); }
+.back   { background: #d60000; transform: rotateY(180deg) translateZ(100px); }
+.left   { background: #ed0e0e; transform: rotateY(-90deg) translateZ(100px); }
+.right  { background: #ed0e0e; transform: rotateY(90deg) translateZ(100px); }
+.bottom { background: #a00000; transform: rotateX(-90deg) translateZ(100px); }
+
+.top { 
+    background: #f80101; 
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    transform-origin: center top;
+    transform: rotateX(90deg) translateY(-100px) translateZ(0px);
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+}
+
+/* Le ruban doré sur chaque face */
+.face::after {
+    content: '';
+    position: absolute;
+    background: #ffd700; /* Or */
+    width: 40px;
+    height: 100%;
+    left: 80px;
+    top: 0;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+/* Rotation du ruban pour les faces latérales */
+.top::before {
+    content: '';
+    position: absolute;
+    background: #ffd700;
+    width: 100%;
+    height: 40px;
+    top: 80px;
+    left: 0;
+}
+
+/* Animation d'ouverture : on cible l'ID lid quand la box a la classe .open */
+.gift-box.open #lid {
+    transform: rotateX(90deg) translateY(-100px) rotateX(110deg);
+}
